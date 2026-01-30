@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arts Innovators - آداب تبتكر | كلية الآداب جامعة عين شمس</title>
+  <meta name="description" content="سجل الآن في مسابقة آداب تبتكر - مسابقة الابتكار السنوية لكلية الآداب جامعة عين شمس">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: 217 91% 40%;
+      --primary-foreground: 0 0% 100%;
+      --accent: 45 93% 47%;
+      --accent-foreground: 0 0% 10%;
+      --background: 210 20% 98%;
+      --foreground: 222 47% 11%;
+      --card: 0 0% 100%;
+      --card-foreground: 222 47% 11%;
+      --muted: 210 20% 96%;
+      --muted-foreground: 215 16% 47%;
+      --border: 214 32% 91%;
+      --radius: 0.5rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      background: hsl(var(--card));
+      border-radius: var(--radius);
+      border: 1px solid hsl(var(--border));
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: hsl(var(--primary));
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: linear-gradient(to left, hsl(var(--primary)), hsl(var(--accent)));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .intro-box {
+      background: linear-gradient(to left, hsla(var(--primary), 0.1), hsla(var(--accent), 0.1));
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: right;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-text {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--primary));
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .accent-text {
+      color: hsl(var(--accent));
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .muted-text {
+      color: hsl(var(--muted-foreground));
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+
+    .icon-primary { color: hsl(var(--primary)); }
+    .icon-accent { color: hsl(var(--accent)); }
+
+    .step-number {
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      flex-shrink: 0;
+    }
+
+    .cta-box {
+      background: hsla(var(--accent), 0.1);
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .cta-box p {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--accent));
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid hsl(var(--border));
+      color: hsl(var(--foreground));
+    }
+
+    .btn-outline:hover {
+      background: hsl(var(--muted));
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-full { width: 100%; }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: right;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid hsl(var(--border));
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-family: inherit;
+      background: hsl(var(--card));
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      outline: none;
+      border-color: hsl(var(--primary));
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-error {
+      color: #dc2626;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid hsl(var(--border));
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .radio-option:hover {
+      background: hsl(var(--muted));
+    }
+
+    .radio-option input {
+      width: 1.25rem;
+      height: 1.25rem;
+      accent-color: hsl(var(--primary));
+    }
+
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .step-bar {
+      height: 0.25rem;
+      width: 2rem;
+      border-radius: 9999px;
+    }
+
+    .step-bar.active { background: hsl(var(--primary)); }
+    .step-bar.inactive { background: hsl(var(--muted)); }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .btn-group {
+        flex-direction: row-reverse;
+      }
+      .btn-group .btn-primary { flex: 1; }
+    }
+
+    .logos-footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid hsl(var(--border));
+      text-align: center;
+    }
+
+    .logos-footer p {
+      font-size: 0.875rem;
+      color: hsl(var(--muted-foreground));
+      margin-bottom: 1rem;
+    }
+
+    .logos-footer img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+    }
+
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      background: hsl(var(--background));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+
+    .loading-logo {
+      width: 12rem;
+      height: 12rem;
+      object-fit: contain;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .loading-dots {
+      display: flex;
+      gap: 0.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .loading-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      background: hsl(var(--primary));
+      border-radius: 50%;
+      animation: bounce 1s infinite;
+    }
+
+    .loading-dot:nth-child(2) { animation-delay: 150ms; }
+    .loading-dot:nth-child(3) { animation-delay: 300ms; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-0.5rem); }
+    }
+
+    .success-icon {
+      width: 5rem;
+      height: 5rem;
+      background: hsla(var(--accent), 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .success-icon svg {
+      width: 3rem;
+      height: 3rem;
+      color: hsl(var(--accent));
+    }
+
+    .hidden { display: none !important; }
+
+    .space-y > * + * {
+      margin-top: 1.5rem;
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen" class="loading-screen hidden">
+    <img src="images/university-logo.jpg" alt="جامعة عين شمس" class="loading-logo">
+    <div class="loading-dots">
+      <span class="loading-dot"></span>
+      <span class="loading-dot"></span>
+      <span class="loading-dot"></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="page-intro" class="space-y">
+      <div class="text-center">
+        <h1>Arts Innovators</h1>
+        <h2>آداب تبتكر</h2>
+      </div>
+
+      <div class="intro-box">
+        <p class="highlight-text">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M21 13.76a6.97 6.97 0 1 0-10.02 6.18L9 22h6l-1.98-2.06A6.97 6.97 0 0 0 21 13.76z"/></svg>
+          لأن الفكر هو أصل الابتكار.. آداب تبتكر!
+        </p>
+        
+        <p class="muted-text">
+          تـحـت رعـايـة الأستاذة الدكتورة/ حـنـان كـامـل مـتـولي – عـمـيـد كـلـيـة الآداب،
+          وإيماناً بأن الإبداع لا حدود له، وأن لطلاب كليتنا بصمة فريدة في صياغة المستقبل..
+          تطلق كلية الآداب رحلة البحث عن المبدعين في مسابقتها السنوية:
+        </p>
+
+        <p class="text-center accent-text" style="margin: 1rem 0;">
+          <svg class="icon" style="display: inline; vertical-align: middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          آداب تبتكر
+          <svg class="icon" style="display: inline; vertical-align: middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+        </p>
+
+        <p class="muted-text">
+          وهي فرصتكم الذهبية للتأهل وتمثيل الكلية في المسابقة الكبرى على مستوى الجامعة "عين شمس تبتكر".
+        </p>
+      </div>
+
+      <div class="card text-right">
+        <h3 class="icon-primary">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg>
+          ليه لازم تشارك وتكون جزء من "آداب تبتكر"؟
+        </h3>
+        <ul>
+          <li>
+            <svg class="icon icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong>تطوير احترافي:</strong> هتحصل على توجيه مباشر من خبراء (Mentorship) لتحويل فكرتك لمشروع حقيقي.</span>
+          </li>
+          <li>
+            <svg class="icon icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong>معسكر تدريبي:</strong> حضور ورش عمل ومخيم تدريبي بمركز الابتكار بالجامعة (iHub).</span>
+          </li>
+          <li>
+            <svg class="icon icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong>شبكة علاقات:</strong> فرصة للتعرف على مبتكرين ورواد أعمال وبناء علاقات مهنية قوية.</span>
+          </li>
+          <li>
+            <svg class="icon icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong>منصة العرض:</strong> الفائزين ليهم مكان في مؤتمر الجامعة السنوي لعرض أفكارهم أمام لجان التحكيم والمستثمرين.</span>
+          </li>
+          <li>
+            <svg class="icon icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span><strong>روح الفريق:</strong> تجربة حقيقية في العمل الجماعي وقيادة الفرق الإبداعية.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card text-right">
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          شروط الاشتراك
+        </h3>
+        <ul style="list-style: disc; padding-right: 1.5rem;">
+          <li style="display: list-item;">التقديم منفرد</li>
+          <li style="display: list-item;">التقدم بفريق عمل مكون من ٣ إلى ٦ طلاب</li>
+          <li style="display: list-item;">أن يكون جميع أعضاء الفريق من طلاب كلية الآداب - جامعة عين شمس</li>
+          <li style="display: list-item;">نرحب بالأفكار الجديدة كلياً، أو الأفكار التي تم تطويرها عن النسخ السابقة</li>
+        </ul>
+      </div>
+
+      <div class="card text-right">
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          محطات المسابقة
+        </h3>
+        <ul>
+          <li><span class="step-number">١</span><span><strong>التسجيل:</strong> البدء في استقبال طلبات المشاركة عبر الرابط الإلكتروني.</span></li>
+          <li><span class="step-number">٢</span><span><strong>التصفية:</strong> مراجعة الأفكار واختيار الفرق المتأهلة للمرحلة التالية.</span></li>
+          <li><span class="step-number">٣</span><span><strong>التأهيل (The Camp):</strong> معسكر تدريبي مكثف لتجهيز الفرق وتطوير مهارات العرض والابتكار.</span></li>
+          <li><span class="step-number">٤</span><span><strong>التحكيم الداخلي:</strong> عرض المشروعات أمام لجنة تحكيم متخصصة بالكلية لاختيار المراكز الأولى.</span></li>
+          <li><span class="step-number">٥</span><span><strong>النهائيات:</strong> الانطلاق رسمياً لتمثيل الكلية في مسابقة "عين شمس تبتكر".</span></li>
+        </ul>
+      </div>
+
+      <div class="cta-box">
+        <p>الفرصة بين إيديك.. سجل الآن قبل غلق باب التقديم!</p>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary" onclick="showPage('project')">
+          ابدأ التسجيل
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+      </div>
+
+      <div class="logos-footer">
+        <p>تحت رعاية</p>
+        <img src="images/logos.jpg" alt="شعارات الرعاة">
+      </div>
+    </div>
+
+    <div id="page-project" class="hidden space-y">
+      <div class="text-center">
+        <h1>Arts Innovators</h1>
+        <div class="step-indicator">
+          <div class="step-bar active"></div>
+          <div class="step-bar inactive"></div>
+        </div>
+        <p class="muted-text">الخطوة ١ من ٢</p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-right" style="font-size: 1.25rem; margin-bottom: 1.5rem; background: none; -webkit-text-fill-color: inherit; color: inherit;">بيانات المشروع</h2>
+        
+        <form id="project-form">
+          <div class="form-group">
+            <label class="form-label">اسم أو عنوان المشروع المقدم للمسابقة *</label>
+            <input type="text" id="projectName" class="form-input" placeholder="أدخل اسم المشروع" required>
+            <div class="form-error" id="projectName-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">نبذة عن المشروع (شرح الفكرة باختصار) *</label>
+            <textarea id="projectDescription" class="form-textarea" placeholder="اشرح فكرة مشروعك باختصار..." required></textarea>
+            <div class="form-error" id="projectDescription-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">عدد أعضاء فريق المشروع *</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="teamSize" value="شخص واحد فقط" required>
+                <span>شخص واحد فقط</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="teamSize" value="شخصين أو أكثر">
+                <span>شخصين أو أكثر</span>
+              </label>
+            </div>
+            <div class="form-error" id="teamSize-error"></div>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary btn-full">
+              التالي
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button type="button" class="btn btn-outline" onclick="showPage('intro')">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              رجوع
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="logos-footer">
+        <p>تحت رعاية</p>
+        <img src="images/logos.jpg" alt="شعارات الرعاة">
+      </div>
+    </div>
+
+    <div id="page-team" class="hidden space-y">
+      <div class="text-center">
+        <h1>Arts Innovators</h1>
+        <div class="step-indicator">
+          <div class="step-bar active"></div>
+          <div class="step-bar active"></div>
+        </div>
+        <p class="muted-text">الخطوة ٢ من ٢</p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-right" style="font-size: 1.25rem; margin-bottom: 1.5rem; background: none; -webkit-text-fill-color: inherit; color: inherit;">بيانات ممثل الفريق</h2>
+        
+        <form id="team-form">
+          <div class="form-group">
+            <label class="form-label">اسم ممثل الفريق *</label>
+            <input type="text" id="representativeName" class="form-input" placeholder="أدخل اسم ممثل الفريق" required>
+            <div class="form-error" id="representativeName-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">رقم تليفون ممثل الفريق (واتساب) *</label>
+            <input type="tel" id="phoneNumber" class="form-input" placeholder="01xxxxxxxxx" required>
+            <div class="form-error" id="phoneNumber-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">القسم *</label>
+            <select id="department" class="form-select" required>
+              <option value="">اختر القسم</option>
+              <option value="قسم اللغة العربية وآدابها">قسم اللغة العربية وآدابها</option>
+              <option value="قسم اللغة الإنجليزية وآدابها">قسم اللغة الإنجليزية وآدابها</option>
+              <option value="قسم اللغة الفرنسية وآدابها">قسم اللغة الفرنسية وآدابها</option>
+              <option value="قسم اللغات الشرقية وآدابها">قسم اللغات الشرقية وآدابها</option>
+              <option value="قسم اللغة العبرية وآدابها">قسم اللغة العبرية وآدابها</option>
+              <option value="قسم الحضارة الأوروبية القديمة">قسم الحضارة الأوروبية القديمة</option>
+              <option value="قسم التاريخ">قسم التاريخ</option>
+              <option value="قسم الجغرافيا ونظم المعلومات الجغرافية">قسم الجغرافيا ونظم المعلومات الجغرافية</option>
+              <option value="قسم الدراسات الفلسفية">قسم الدراسات الفلسفية</option>
+              <option value="قسم علم النفس">قسم علم النفس</option>
+              <option value="قسم علم الاجتماع">قسم علم الاجتماع</option>
+              <option value="قسم علوم الاتصال والإعلام">قسم علوم الاتصال والإعلام</option>
+              <option value="قسم الإرشاد السياحي باللغة الإنجليزية">قسم الإرشاد السياحي باللغة الإنجليزية</option>
+              <option value="قسم الإرشاد السياحي باللغة الفرنسية">قسم الإرشاد السياحي باللغة الفرنسية</option>
+              <option value="قسم الآثار">قسم الآثار</option>
+              <option value="قسم المكتبات والمعلومات">قسم المكتبات والمعلومات</option>
+              <option value="قسم الدراما والنقد المسرحي">قسم الدراما والنقد المسرحي</option>
+              <option value="أقسام البرامج المميزة">أقسام البرامج المميزة</option>
+              <option value="أخرى">أخرى</option>
+            </select>
+            <div class="form-error" id="department-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">الفرقة *</label>
+            <select id="year" class="form-select" required>
+              <option value="">اختر الفرقة</option>
+              <option value="الأولى">الأولى</option>
+              <option value="الثانية">الثانية</option>
+              <option value="الثالثة">الثالثة</option>
+              <option value="الرابعة">الرابعة</option>
+            </select>
+            <div class="form-error" id="year-error"></div>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" id="submit-btn" class="btn btn-primary btn-full">
+              تسجيل
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </button>
+            <button type="button" class="btn btn-outline" onclick="showPage('project')">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              رجوع
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="logos-footer">
+        <p>تحت رعاية</p>
+        <img src="images/logos.jpg" alt="شعارات الرعاة">
+      </div>
+    </div>
+
+    <div id="page-success" class="hidden space-y">
+      <div class="text-center">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h1 style="color: inherit;">شكراً لمشاركتك في مسابقة</h1>
+        <h2>Arts Innovators</h2>
+        <p class="muted-text" style="font-size: 1.125rem;">سيتم الرد عليك في أقرب وقت</p>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary" onclick="resetForm()">تسجيل جديد</button>
+      </div>
+
+      <div class="logos-footer">
+        <p>تحت رعاية</p>
+        <img src="images/logos.jpg" alt="شعارات الرعاة">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const WEBHOOK_URL = 'https://abdullah.dsoqi.online/webhook/arts_innovators';
+    
+    let formData = {
+      projectName: '',
+      projectDescription: '',
+      teamSize: '',
+      representativeName: '',
+      phoneNumber: '',
+      department: '',
+      year: ''
+    };
+
+    function showLoading(callback) {
+      document.getElementById('loading-screen').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('loading-screen').classList.add('hidden');
+        if (callback) callback();
+      }, 2000);
+    }
+
+    function showPage(page) {
+      const pages = ['page-intro', 'page-project', 'page-team', 'page-success'];
+      
+      showLoading(() => {
+        pages.forEach(p => {
+          document.getElementById(p).classList.add('hidden');
+        });
+        document.getElementById('page-' + page).classList.remove('hidden');
+        window.scrollTo(0, 0);
+      });
+    }
+
+    document.getElementById('project-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const projectName = document.getElementById('projectName').value.trim();
+      const projectDescription = document.getElementById('projectDescription').value.trim();
+      const teamSizeEl = document.querySelector('input[name="teamSize"]:checked');
+      
+      let hasError = false;
+      
+      document.getElementById('projectName-error').textContent = '';
+      document.getElementById('projectDescription-error').textContent = '';
+      document.getElementById('teamSize-error').textContent = '';
+      
+      if (!projectName) {
+        document.getElementById('projectName-error').textContent = 'اسم المشروع مطلوب';
+        hasError = true;
+      }
+      if (!projectDescription) {
+        document.getElementById('projectDescription-error').textContent = 'وصف المشروع مطلوب';
+        hasError = true;
+      }
+      if (!teamSizeEl) {
+        document.getElementById('teamSize-error').textContent = 'اختر عدد الأعضاء';
+        hasError = true;
+      }
+      
+      if (hasError) return;
+      
+      formData.projectName = projectName;
+      formData.projectDescription = projectDescription;
+      formData.teamSize = teamSizeEl.value;
+      
+      showPage('team');
+    });
+
+    document.getElementById('team-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const representativeName = document.getElementById('representativeName').value.trim();
+      const phoneNumber = document.getElementById('phoneNumber').value.trim();
+      const department = document.getElementById('department').value;
+      const year = document.getElementById('year').value;
+      
+      let hasError = false;
+      
+      document.getElementById('representativeName-error').textContent = '';
+      document.getElementById('phoneNumber-error').textContent = '';
+      document.getElementById('department-error').textContent = '';
+      document.getElementById('year-error').textContent = '';
+      
+      if (!representativeName) {
+        document.getElementById('representativeName-error').textContent = 'اسم ممثل الفريق مطلوب';
+        hasError = true;
+      }
+      if (!phoneNumber) {
+        document.getElementById('phoneNumber-error').textContent = 'رقم الهاتف مطلوب';
+        hasError = true;
+      }
+      if (!department) {
+        document.getElementById('department-error').textContent = 'القسم مطلوب';
+        hasError = true;
+      }
+      if (!year) {
+        document.getElementById('year-error').textContent = 'الفرقة مطلوبة';
+        hasError = true;
+      }
+      
+      if (hasError) return;
+      
+      formData.representativeName = representativeName;
+      formData.phoneNumber = phoneNumber;
+      formData.department = department;
+      formData.year = year;
+      
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="loading-spinner"></span> جاري التسجيل...';
+      
+      const payload = {
+        ...formData,
+        submittedAt: new Date().toISOString()
+      };
+      
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          mode: 'no-cors'
+        });
+      } catch (error) {
+        console.log('Webhook notification attempted');
+      }
+      
+      showPage('success');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'تسجيل <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+    });
+
+    function resetForm() {
+      formData = {
+        projectName: '',
+        projectDescription: '',
+        teamSize: '',
+        representativeName: '',
+        phoneNumber: '',
+        department: '',
+        year: ''
+      };
+      
+      document.getElementById('projectName').value = '';
+      document.getElementById('projectDescription').value = '';
+      document.querySelectorAll('input[name="teamSize"]').forEach(r => r.checked = false);
+      document.getElementById('representativeName').value = '';
+      document.getElementById('phoneNumber').value = '';
+      document.getElementById('department').value = '';
+      document.getElementById('year').value = '';
+      
+      showPage('intro');
+    }
+  </script>
+</body>
+</html>
